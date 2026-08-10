@@ -19,7 +19,7 @@ const PostList = (props) => {
                </header>
                <p className="post-text">{post.text}</p>
                <footer className="post-footer">
-               <span>{new Data(post.createdAt).toLocalDateString()}</span>
+               <span>{new Date(post.createdAt).toLocaleDateString()}</span>
                <span>{post.comments?.length || 0} comments</span>
                </footer>
             </article>

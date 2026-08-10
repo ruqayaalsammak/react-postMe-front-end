@@ -9,6 +9,9 @@ import PostList from './pages/PostList';
 import * as postService from './services/posts'
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router';
+import PostDetails from './pages/PostDetails';
+
+
 
 
 
@@ -51,6 +54,7 @@ const App = () => {
         {user ? (
           <>
           <Route path='/posts' element={<PostList posts={posts} />} />
+          <Route path='/posts/:postId' element={<PostDetails />} />
           </>
         ) : (
           <>
