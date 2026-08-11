@@ -11,10 +11,7 @@ import { useState, useEffect } from 'react'
 import { Link } from 'react-router';
 import PostDetails from './pages/PostDetails';
 import PostForm from "./pages/PostForm"
-
-
-
-
+import * as commentsService from './services/comments'
 
 
 const App = () => {

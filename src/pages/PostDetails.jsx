@@ -21,7 +21,9 @@ useEffect(() => {
 }, [postId])
 
 const handleAddComment = async (formData) => {
-    console.log('formData: ', formData)
+    // console.log('formData: ', formData)
+    const newComment = await commentsService.create(postId, formData)
+    setPost({...post, comments:[...post.comments, newComment]})
 }
 
 
