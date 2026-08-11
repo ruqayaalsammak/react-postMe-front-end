@@ -1,7 +1,7 @@
 import Nav from "./components/Nav"
 import SignUpForm from "./pages/SignUpForm"
 import './App.css'
-import { Routes, Route } from "react-router"
+import { Routes, Route, useNavigate } from "react-router"
 import SignInForm from "./pages/SignInForm"
 import Landing from "./pages/Landing"
 import Dashboard from "./pages/Dashboard"
@@ -18,6 +18,7 @@ import PostForm from "./pages/PostForm"
 
 
 const App = () => {
+const navigate = useNavigate();
 
   const getUserFromToken = () => {
  const token = localStorage.getItem('token')
@@ -34,17 +35,16 @@ const App = () => {
   useEffect(() => {
     const fetchAllPosts = async () => {
       const postsData = await postService.index()
-  
-      // update to set state:
       setPosts(postsData)
     }
     if (user) fetchAllPosts()
   }, [user])
 
-  // return statement code here
 
-
-// src/App.jsx
+  const handleAddPost = async (formData) => {
+    console.log('formData: ', formData)
+    navigate('/posts')
+  }
 
   return (
     <div>
@@ -57,7 +57,8 @@ const App = () => {
           <Route path='/posts' element={<PostList posts={posts} />} />
           <Route path='/posts/:postId' element={<PostDetails />} />
           <Route path='/posts/new' element={<h1>New Post</h1>} />
-
+          <Route path='/posts/new' element={<PostForm />} />
+          <Route path='/posts/new' element={<PostForm handleAddPost={handleAddPost} />} />
           </>
         ) : (
           <>

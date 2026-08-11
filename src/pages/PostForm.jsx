@@ -14,8 +14,8 @@ const PostForm = (props) => {
 
     const handleSubmit = (evt) => {
         evt.preventDefault()
-        console.log('formData', formData)
-        // We'll update this function shortly...
+        // console.log('formData', formData)
+        props.handleAddPost(formData)
     }
 
     return (
