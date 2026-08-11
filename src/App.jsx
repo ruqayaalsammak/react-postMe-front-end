@@ -45,6 +45,8 @@ const navigate = useNavigate();
     navigate('/posts')
   }
 
+  
+
   return (
     <div>
       <Nav user={user} setUser={setUser} />

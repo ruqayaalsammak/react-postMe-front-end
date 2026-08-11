@@ -1,5 +1,4 @@
 // src/pages/PostDetails.jsx
-
 import { Form, useNavigate, useParams } from "react-router"
 import * as postService from '../services/posts'
 import { useState, useEffect } from "react"
@@ -8,7 +7,7 @@ import CommentForm from "../components/CommentForm"
 const PostDetails = (props) => {
     const { postId } = useParams();
     const navigate = useNavigate();
-    const [post, setPost] = useState({});
+    const [post, setPost] = useState(null);
 
     // console.log('postId: ', postId)
 useEffect(() => {
