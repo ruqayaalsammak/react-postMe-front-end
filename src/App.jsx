@@ -54,9 +54,7 @@ const navigate = useNavigate();
         {user ? (
           <>
           <Route path='/posts' element={<PostList posts={posts} />} />
-          <Route path='/posts/:postId' element={<PostDetails />} />
-          <Route path='/posts/new' element={<h1>New Post</h1>} />
-          <Route path='/posts/new' element={<PostForm />} />
+          <Route path='/posts/:postId' element={<PostDetails user={user} />} />
           <Route path='/posts/new' element={<PostForm handleAddPost={handleAddPost} />} />
           </>
         ) : (
