@@ -1,8 +1,9 @@
 // src/pages/PostDetails.jsx
 
-import { useNavigate, useParams } from "react-router"
+import { Form, useNavigate, useParams } from "react-router"
 import * as postService from '../services/posts'
 import { useState, useEffect } from "react"
+import CommentForm from "../components/CommentForm"
 
 const PostDetails = (props) => {
     const { postId } = useParams();
@@ -18,6 +19,11 @@ useEffect(() => {
     }
     fetchPost()
 }, [postId])
+
+const handleAddComment = async (formData) => {
+    console.log('formData: ', formData)
+}
+
 
 if (!post) return <main>Loading...</main>
 //   console.log('post state:', post)
@@ -43,7 +49,7 @@ if (!post) return <main>Loading...</main>
         {/* All updates are in the comments section! */}
         <section>
         <h2>Comments</h2>
-
+        <CommentForm handleAddComment={handleAddComment} />
         {!post.comments.length && <p>There are no comments.</p>}
 
         {post.comments.map((comment) => (
@@ -55,7 +61,6 @@ if (!post) return <main>Loading...</main>
           </article>
         ))}
       </section>
-
         </footer>
     </article>
     

@@ -42,7 +42,9 @@ const navigate = useNavigate();
 
 
   const handleAddPost = async (formData) => {
-    console.log('formData: ', formData)
+    // console.log('formData: ', formData)
+    const newPost = await postService.create(formData)
+    setPosts([newPost, ...posts])
     navigate('/posts')
   }
 
