@@ -10,6 +10,7 @@ import * as postService from './services/posts'
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router';
 import PostDetails from './pages/PostDetails';
+import PostForm from "./pages/PostForm"
 
 
 
@@ -55,6 +56,8 @@ const App = () => {
           <>
           <Route path='/posts' element={<PostList posts={posts} />} />
           <Route path='/posts/:postId' element={<PostDetails />} />
+          <Route path='/posts/new' element={<h1>New Post</h1>} />
+
           </>
         ) : (
           <>
