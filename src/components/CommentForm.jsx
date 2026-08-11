@@ -12,7 +12,7 @@
 
     const handleSubmit = (evt) => {
       evt.preventDefault()
-      // add handleAddComment
+      props.handleAddComment(formData)
       setFormData(initialState)
     }
 
