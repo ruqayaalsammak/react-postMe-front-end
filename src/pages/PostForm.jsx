@@ -1,13 +1,32 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import { useParams } from 'react-router'
+import * as postService from '../services/posts'
 
 const PostForm = (props) => {
+    const { postId } = useParams()
+    console.log(postId)
     const initialState = {
         title: '',
         text: '',
         category: 'General'
     }
-    const [formData, setFormData] = useState(initialState)
+    
+    useEffect(() => {
+    const fetchPost = async () => {
+      const postData = await postService.show(postId);
+      setFormData(postData)
+    }
+    if (postId) fetchPost()
 
+    // Add a cleanup function
+    return () => setFormData(initialState)
+  }, [postId])
+
+
+
+
+
+    const [formData, setFormData] = useState(initialState)
     const handleChange = (evt) => {
         setFormData({ ...formData, [evt.target.name]: evt.target.value })
     }
@@ -20,6 +39,7 @@ const PostForm = (props) => {
 
     return (
         <main className='card'>
+        <h1>{postId ? 'Edit Post' : 'New Post'}</h1>
         <form onSubmit={handleSubmit}>
         <label htmlFor='title-input'>Title</label>
         <input
