@@ -3,6 +3,7 @@ import { Form, useNavigate, useParams } from "react-router"
 import * as postService from '../services/posts'
 import { useState, useEffect } from "react"
 import CommentForm from "../components/CommentForm"
+import * as commentsService from '../services/comments'
 
 const PostDetails = (props) => {
     const { postId } = useParams();
@@ -29,6 +30,7 @@ const handleAddComment = async (formData) => {
 if (!post) return <main>Loading...</main>
 //   console.log('post state:', post)
 
+console.log(post.comments,'com');
 
     return (
     <article className="card post-card">
