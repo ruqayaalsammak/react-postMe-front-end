@@ -45,7 +45,12 @@ const navigate = useNavigate();
     navigate('/posts')
   }
 
-  
+  const handleDeletePost = async (postId) => {
+    // console.log('postId: ', postId)
+  const deletedPost = await postService.deletePost(postId)
+    setPosts(posts.filter((post) => post._id !== postId))
+    navigate('/posts')
+  }
 
   return (
     <div>
@@ -56,7 +61,7 @@ const navigate = useNavigate();
         {user ? (
           <>
           <Route path='/posts' element={<PostList posts={posts} />} />
-          <Route path='/posts/:postId' element={<PostDetails user={user} />} />
+          <Route path='/posts/:postId' element={<PostDetails user={user} handleDeletePost={handleDeletePost} />} />
           <Route path='/posts/new' element={<PostForm handleAddPost={handleAddPost} />} />
           </>
         ) : (
