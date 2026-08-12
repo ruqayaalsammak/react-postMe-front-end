@@ -3,6 +3,7 @@
 import { Link } from "react-router"
 
 const PostList = (props) => {
+  
   return (
     <main className="post-list">
       {props.posts.map((post) => (
@@ -13,7 +14,7 @@ const PostList = (props) => {
                     {post.category ? post.category.toUpperCase(): "none"}
                 </span>
                 <h2>{post.title}</h2>
-                <p class name="post-author">
+                <p className="post-author">
                     Posted by {post.author?.username || 'Unknown user'}
                 </p>
                </header>

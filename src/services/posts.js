@@ -52,9 +52,27 @@ const deletePost = async (postId) => {
   }
 }
 
+async function update(postId, postFormData) {
+  try {
+    const res = await fetch(`${BASE_URL}/${postId}`, {
+      method: 'PUT',
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem('token')}`,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(postFormData),
+    })
+    return res.json()
+  } catch (error) {
+    console.log(error)
+  }
+}
+
+
 export { 
   index,
   show,
   create,
   deletePost,
+  update,
 }

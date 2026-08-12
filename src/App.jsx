@@ -12,6 +12,7 @@ import { Link } from 'react-router';
 import PostDetails from './pages/PostDetails';
 import PostForm from "./pages/PostForm"
 import * as commentsService from './services/comments'
+import CommentForm from './components/CommentForm'
 
 
 const App = () => {
@@ -52,6 +53,15 @@ const navigate = useNavigate();
     navigate('/posts')
   }
 
+   const handleUpdatePost = async (postId, formData) => {
+    const updatedPost = await postService.update(postId, formData)
+    const updatedPostsList = posts.map((post) => {
+      return postId === post._id ? updatedPost : post
+    })
+    setPosts(updatedPostsList)
+    navigate(`/posts/${postId}`)
+  }
+
   return (
     <div>
       <Nav user={user} setUser={setUser} />
@@ -63,7 +73,9 @@ const navigate = useNavigate();
           <Route path='/posts' element={<PostList posts={posts} />} />
           <Route path='/posts/:postId' element={<PostDetails user={user} handleDeletePost={handleDeletePost} />} />
           <Route path='/posts/new' element={<PostForm handleAddPost={handleAddPost} />} />
-          <Route path='/posts/:postId/edit' element={<PostForm />} />
+          <Route path='/posts/:postId/edit' element={<PostForm handleUpdatePost={handleUpdatePost} />} />
+          <Route path='/posts/:postId/comments/:commentId/edit' element={<CommentForm />} />
+
           </>
         ) : (
           <>

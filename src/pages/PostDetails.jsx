@@ -32,6 +32,15 @@ if (!post) return <main>Loading...</main>
 
 console.log(post.comments,'com');
 
+
+const handleDeleteComment = async (commentId) => {
+  console.log('commentId: ', commentId)
+  const filteredComments = post.comments.filter((comment) => {
+      return comment._id !== commentId
+  })
+  setPost({...post, comments: filteredComments})
+}
+
     return (
     <article className="card post-card">
         <header className="post-header">

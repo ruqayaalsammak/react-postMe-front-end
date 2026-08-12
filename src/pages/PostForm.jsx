@@ -23,19 +23,19 @@ const PostForm = (props) => {
   }, [postId])
 
 
-
-
-
     const [formData, setFormData] = useState(initialState)
     const handleChange = (evt) => {
         setFormData({ ...formData, [evt.target.name]: evt.target.value })
     }
 
-    const handleSubmit = (evt) => {
-        evt.preventDefault()
-        // console.log('formData', formData)
+   const handleSubmit = (evt) => {
+    evt.preventDefault()
+    if (postId) {
+        props.handleUpdatePost(postId, formData)
+    } else {
         props.handleAddPost(formData)
     }
+  }
 
     return (
         <main className='card'>

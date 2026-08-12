@@ -16,7 +16,41 @@ const create = async (postId, commentFormData) => {
   }
 }
 
+const deleteComment = async (postId, commentId) => {
+  try {
+    const res = await fetch(`${BASE_URL}/${postId}/comments`, {
+      method: 'DELETE',
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem('token')}`,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(commentFormData),
+    })
+    return res.json()
+  } catch (error) {
+    console.log(error)
+  }
+}
+
+const update = async (postId, commentId, formData) => {
+  try {
+    const res = await fetch(`${BASE_URL}/${postId}/comments/${commentId}`, {
+      method: 'PUT',
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem('token')}`,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(formData),
+    })
+    return res.json()
+  } catch (error) {
+    console.log(error)
+  }
+}
+
 
 export {
     create,
+    deleteComment,
+    update,
 }
