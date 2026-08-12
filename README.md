@@ -1,16 +1,17 @@
-# React + Vite
+# 📝 PostMe
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+An intuitive, full-stack web application for creating, categorizing, and managing posts! Share insights across various categories, browse community posts, and manage your authored content seamlessly.
 
-Currently, two official plugins are available:
+## 🚀 Getting Started
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
 
-## React Compiler
+ **Repository:** [GitHub Repository](https://github.com/ruqayaalsammak/express-api-PostMe-back-end)
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+ ## 📋 Features & How to Use
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+1. **Dashboard & Feed:** View all published posts alongside their category, creation date, and author details.
+2. **Create New Posts:** Publish a post by providing a title, main text content, and selecting a category (e.g., News, Educational, Music, General).
+3. **Manage Your Posts:** 
+   * **Update Content:** Edit titles, text, or categories for posts you have created.
+   * **Delete Posts:** Remove your own posts directly from the Post Details view.
+4. **User Authentication & Ownership:** Secure user login and authorization ensuring only content owners can edit or delete their posts.
