@@ -31,7 +31,7 @@ const SignUpForm = (props) => {
     }
 
     const isFormValid = () => {
-        if(formData.username && formData.password && formData.password === formData.confirmPassword) {
+        if(formData.username && formData.password === formData.confirmPassword) {
             return true
         } else return false
     }

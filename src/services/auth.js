@@ -8,6 +8,7 @@ const signUp = async (formData) => {
             body: JSON.stringify(formData)
         })
         const data = await res.json()
+        console.log(data)
 
         if (data.err) {
             console.log(data.err)
@@ -41,6 +42,7 @@ const signIn = async (formData) => {
 
         if (data.token) {
             localStorage.setItem('token', data.token)
+            // returning the user object
             return JSON.parse(atob(data.token.split('.')[1])).payload
         }
 
