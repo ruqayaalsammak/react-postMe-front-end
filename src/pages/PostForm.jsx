@@ -18,7 +18,6 @@ const PostForm = (props) => {
     }
     if (postId) fetchPost()
 
-    // Add a cleanup function
     return () => setFormData(initialState)
   }, [postId])
 

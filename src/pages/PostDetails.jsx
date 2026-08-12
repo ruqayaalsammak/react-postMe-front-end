@@ -58,7 +58,6 @@ const handleDeleteComment = async (commentId) => {
         </header>
         <p className="post-text">{post.text}</p>
         <footer className="post-footer">
-        {/* All updates are in the comments section! */}
         <section>
         <h2>Comments</h2>
         <CommentForm handleAddComment={handleAddComment} />
